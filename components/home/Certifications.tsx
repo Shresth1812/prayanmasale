@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import Image from 'next/image'
 import { CheckCircle, Shield, Award, Leaf } from 'lucide-react'
 
 const Certifications = () => {
@@ -72,11 +71,10 @@ const Certifications = () => {
               <div className="bg-dark-800 p-6 rounded-2xl border border-dark-700 hover:border-primary-500/30 transition-all duration-300 hover-lift text-center">
                 {/* Badge Image */}
                 <div className="relative w-20 h-20 mx-auto mb-4">
-                  <Image
+                  <img
                     src={cert.badge}
                     alt={cert.title}
-                    fill
-                    className="object-contain rounded-lg"
+                    className="w-full h-full object-contain rounded-lg"
                   />
                 </div>
 

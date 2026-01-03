@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { persist } from 'zustand/middleware'
+import { persist, createJSONStorage } from 'zustand/middleware'
 
 export interface Product {
   id: string
@@ -93,6 +93,7 @@ export const useCartStore = create<CartStore>()(
     }),
     {
       name: 'prayan-cart-storage',
+      storage: createJSONStorage(() => localStorage),
     }
   )
 )

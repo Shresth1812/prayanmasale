@@ -67,6 +67,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                 alt={product.name}
                 fill
                 className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               
               {/* Badges */}
