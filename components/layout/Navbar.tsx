@@ -38,25 +38,26 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-3">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-2xl lg:text-3xl font-luxury font-bold text-gold-gradient"
+              className="text-3xl lg:text-4xl font-luxury font-bold text-gold-gradient tracking-tight"
             >
               PRAYAN
             </motion.div>
-            <span className="text-sm text-primary-400 font-medium">Masale</span>
+            <span className="text-sm text-primary-400 font-medium tracking-widest uppercase">Masale</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-10">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className="text-white hover:text-primary-400 transition-colors duration-200 font-medium"
+                className="text-white hover:text-primary-400 transition-all duration-300 font-medium text-lg tracking-wide relative group"
               >
                 {item.name}
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
               </Link>
             ))}
           </div>

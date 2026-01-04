@@ -58,10 +58,10 @@ const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="inline-flex items-center space-x-2 bg-primary-500/20 border border-primary-500/30 rounded-full px-4 py-2 text-primary-400"
+            className="inline-flex items-center space-x-2 glass-effect rounded-full px-6 py-3 text-primary-400 mb-6"
           >
-            <Sparkles size={16} />
-            <span className="text-sm font-medium">Premium Quality Since 1985</span>
+            <Sparkles size={18} className="animate-pulse" />
+            <span className="text-sm font-medium tracking-wide">Premium Quality Since 1985</span>
           </motion.div>
 
           {/* Main Heading */}
@@ -69,11 +69,11 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 1 }}
-            className="text-4xl sm:text-6xl lg:text-7xl font-luxury font-bold leading-tight"
+            className="text-5xl sm:text-7xl lg:text-8xl font-luxury font-bold leading-tight tracking-tight"
           >
-            <span className="text-white">PRAYAN</span>
+            <span className="text-white drop-shadow-2xl">PRAYAN</span>
             <br />
-            <span className="text-gold-gradient">Masale</span>
+            <span className="text-gold-gradient animate-pulse">Masale</span>
           </motion.h1>
 
           {/* Tagline */}
@@ -81,7 +81,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 1 }}
-            className="text-xl sm:text-2xl lg:text-3xl text-gray-200 font-light"
+            className="text-2xl sm:text-3xl lg:text-4xl text-gray-200 font-light tracking-wide"
           >
             Pure Taste. Royal Tradition.
           </motion.p>
@@ -91,9 +91,9 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 1 }}
-            className="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed"
+            className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-light"
           >
-            Experience the finest quality spices, handpicked from the best farms and crafted with generations of expertise.
+            Experience the finest quality spices, handpicked from the best farms and crafted with generations of expertise for the discerning palate.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -105,9 +105,9 @@ const HeroSection = () => {
           >
             <Link href="/shop">
               <motion.button
-                whileHover={{ scale: 1.05, y: -2 }}
+                whileHover={{ scale: 1.05, y: -3 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full sm:w-auto px-8 py-4 bg-primary-500 text-dark-900 font-semibold rounded-full hover:bg-primary-400 transition-all duration-300 shadow-lg hover:shadow-primary-500/25"
+                className="w-full sm:w-auto px-10 py-5 btn-primary text-lg font-semibold tracking-wide shadow-2xl"
               >
                 Shop Now
               </motion.button>
@@ -115,9 +115,9 @@ const HeroSection = () => {
 
             <motion.button
               onClick={scrollToProducts}
-              whileHover={{ scale: 1.05, y: -2 }}
+              whileHover={{ scale: 1.05, y: -3 }}
               whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto px-8 py-4 border-2 border-primary-500 text-primary-400 font-semibold rounded-full hover:bg-primary-500/10 transition-all duration-300"
+              className="w-full sm:w-auto px-10 py-5 btn-secondary text-lg font-semibold tracking-wide"
             >
               Explore Products
             </motion.button>
