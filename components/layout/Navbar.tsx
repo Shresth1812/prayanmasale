@@ -13,10 +13,24 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      const scrollPosition = window.scrollY
+      setIsScrolled(scrollPosition > 20)
     }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    
+    // Add throttling for better performance
+    let ticking = false
+    const throttledHandleScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll()
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+    
+    window.addEventListener('scroll', throttledHandleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', throttledHandleScroll)
   }, [])
 
   const navItems = [
@@ -31,8 +45,10 @@ const Navbar = () => {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'glass-effect' : 'bg-transparent'
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
+        isScrolled 
+          ? 'bg-black/95 backdrop-blur-xl border-b border-primary-500/20 shadow-2xl' 
+          : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -117,18 +133,25 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden glass-effect border-t border-primary-500/20"
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="lg:hidden bg-black/95 backdrop-blur-xl border-t border-primary-500/20"
           >
-            <div className="px-4 py-4 space-y-4">
-              {navItems.map((item) => (
-                <Link
+            <div className="px-4 py-6 space-y-4">
+              {navItems.map((item, index) => (
+                <motion.div
                   key={item.name}
-                  href={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-white hover:text-primary-400 transition-colors duration-200 font-medium py-2"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.3 }}
                 >
-                  {item.name}
-                </Link>
+                  <Link
+                    href={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-white hover:text-primary-400 transition-colors duration-200 font-medium py-3 text-lg"
+                  >
+                    {item.name}
+                  </Link>
+                </motion.div>
               ))}
             </div>
           </motion.div>
