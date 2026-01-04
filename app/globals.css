@@ -7,6 +7,9 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
@@ -19,6 +22,11 @@ body {
   color: #ffffff;
   overflow-x: hidden;
   line-height: 1.6;
+}
+
+/* Prevent navbar flashes */
+nav {
+  will-change: background-color, backdrop-filter, border-color, box-shadow;
 }
 
 /* Custom scrollbar - Premium */
